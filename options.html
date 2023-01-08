@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Haven</title>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="/style/master.css" />
+		<link rel="stylesheet" href="/style/options.css" />
+	</head>
+
+	<body>
+		<script type="module" src="/script/options.js"></script>
+
+		<h3>Stealth</h3>
+		<p>
+			Stealth hides sites from your browsing history and your screen from
+			spyware
+		</p>
+		<input type="checkbox" id="stealth" onclick="toggleStealth()" />
+
+		<h3>Search Engine</h3>
+		<select id="dropdown" onchange="changeSearch()">
+			<option disabled selected value>Choose a search engine</option>
+			<option value="google">Google</option>
+			<option value="brave">Brave</option>
+			<option value="qwant">Qwant</option>
+		</select>
+
+		<h3>Title</h3>
+		<input type="textbox" id="title" placeholder="Write a title" />
+
+		<script type="module" src="/script/sdk/proxyHref.js"></script>
+		<script type="module" src="/script/setOptions.js"></script>
+	</body>
+</html>

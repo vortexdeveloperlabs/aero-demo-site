@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<script type="module">
+			import { prefix } from "/aero/config.js";
+
+			if ("serviceWorker" in navigator)
+				navigator.serviceWorker
+					.register("/sw.js", {
+						scope: prefix,
+						// Don't cache http requests
+						updateViaCache: "none",
+						type: "module",
+					})
+					// Update service worker
+					.then(reg => {
+						reg.update();
+
+						location.href =
+							location.origin + prefix + window.location.hash.slice(1);
+					})
+					.catch(err => console.error(err.message));
+		</script>
+	</body>
+</html>

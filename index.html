@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Haven</title>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="/style/master.css" />
+		<link rel="stylesheet" href="/style/index.css" />
+	</head>
+
+	<body>
+		<section>
+			<input
+				id="omnibox"
+				type="text"
+				placeholder="Type in a search or url here"
+				autocomplete="off"
+				autofocus
+			/>
+			<div id="box" hidden></div>
+		</section>
+		<navbar>
+			<a href="options.html"><ion-icon name="cog-outline"></ion-icon></a>
+		</navbar>
+
+		<script type="module" src="/script/sdk/proxyHref.js"></script>
+		<script type="module" src="/script/setOptions.js"></script>
+
+		<script type="module" src="/script/index.js"></script>
+	</body>
+</html>
