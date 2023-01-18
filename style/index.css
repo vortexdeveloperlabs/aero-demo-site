@@ -7,11 +7,12 @@ section {
 	top: 50%;
 	transform: translate(-50%, -50%);
 
-	background-color: #141414;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	padding-left: 1em;
 	padding-right: 1em;
+
+	background-color: #141414;
 
 	border-color: #f8b1dc;
 	border-style: solid;
@@ -68,7 +69,22 @@ navbar i:hover .hidden {
 .dropdown:hover {
 	padding-right: 2em;
 	padding-left: 2em;
-	text-decoration: none;
+
 	border-bottom: 1px solid currentColor;
 	border-color: #ff6dfc;
+	
+	text-decoration: none;
+}
+
+#sponsor {
+	position: fixed;
+
+	left: 50%;
+	bottom: 10Spx;
+	
+	transform: translate(-50%, -50%);
+}
+
+#sponsor a {
+	color: lightblue;
 }
