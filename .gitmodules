@@ -1,6 +1,0 @@
-[submodule "aero"]
-	path = aero
-	url = https://github.com/ProxyHaven/aero
-[submodule "script/sdk"]
-	path = script/sdk
-	url = https://github.com/ProxyHaven/sdk
