@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Haven</title>
+		<title>aero</title>
 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,11 +20,13 @@
 	</head>
 
 	<body>
+		<script type="module" src="/script/sdk/proxyHref.js"></script>
+
 		<section>
 			<input
 				id="omnibox"
 				type="text"
-				placeholder="Type in a search or url here"
+				placeholder="Type a search query or url here"
 				autocomplete="off"
 				autofocus
 			/>
@@ -32,16 +34,12 @@
 		</section>
 		<navbar>
 			<a href="options.html"><ion-icon name="cog-outline"></ion-icon></a>
-			<a href="https://github.com/ProxyHaven/Haven-Deploy"
-				><ion-icon name="logo-github"></ion-icon
-			></a>
+			<a id="repo" onclick=""><ion-icon name="logo-github"></ion-icon></a>
 		</navbar>
-		<p id="sponsor">
-			Powered by <a href="https://github.com/ProxyHaven/aero">aero</a>
-		</p>
+		<p id="sponsor"></p>
 
-		<script type="module" src="/script/sdk/proxyHref.js"></script>
-		<script type="module" src="/script/setOptions.js"></script>
+		<script type="module" src="/script/init.js"></script>
+		<script type="module" src="/script/initHome.js"></script>
 
 		<script type="module" src="/script/index.js"></script>
 	</body>

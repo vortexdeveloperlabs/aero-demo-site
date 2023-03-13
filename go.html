@@ -17,7 +17,9 @@
 						reg.update();
 
 						location.href =
-							location.origin + prefix + window.location.hash.slice(1);
+							location.origin +
+							prefix +
+							window.location.hash.slice(1);
 					})
 					.catch(err => console.error(err.message));
 		</script>

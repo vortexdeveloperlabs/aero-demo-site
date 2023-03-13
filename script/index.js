@@ -1,6 +1,4 @@
-"use scrict";
-
-import { prefix, proxyApi } from "/aero/config.js";
+import { prefix, backends } from "/aero/config.js";
 
 import ProxyManager from "./sdk/ProxyManager.js";
 import stealth from "./sdk/stealth.js";
@@ -10,7 +8,7 @@ const proxyManager = new ProxyManager();
 
 proxyManager.add("/sw.js", prefix);
 
-const search = new Search(proxyApi);
+const search = new Search(backends);
 
 function getSearchEngine() {
 	const defaultSearch = "google";
@@ -40,7 +38,7 @@ function formatQuery(query) {
 	return search[getSearchEngine()].url() + query.replace(/ /g, "+");
 }
 
-window.addEventListener("load", () => {
+addEventListener("load", () => {
 	const omnibox = document.getElementById("omnibox");
 
 	const box = document.getElementById("box");

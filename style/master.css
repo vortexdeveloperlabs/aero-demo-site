@@ -7,11 +7,12 @@
 }
 
 :root {
-	--outline: #f8b1dc;
+	--bg: #202124;
+	--fg: #f8b1dc;
 }
 
 body {
-	background-color: #202124;
+	background-color: var(--bg);
 	color: white;
 	font-family: "Montserrat", sans-serif;
 }

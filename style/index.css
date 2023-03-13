@@ -12,9 +12,9 @@ section {
 	padding-left: 1em;
 	padding-right: 1em;
 
-	background-color: #141414;
+	background-color: var(--bg);
 
-	border-color: #f8b1dc;
+	border-color: var(--fg);
 	border-style: solid;
 	border-width: 0.1em;
 	border-radius: 3px;
@@ -64,16 +64,6 @@ navbar i .hidden {
 
 navbar i:hover .hidden {
 	visibility: visible;
-}
-
-.dropdown:hover {
-	padding-right: 2em;
-	padding-left: 2em;
-
-	border-bottom: 1px solid currentColor;
-	border-color: #ff6dfc;
-
-	text-decoration: none;
 }
 
 #sponsor {

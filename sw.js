@@ -1,12 +1,10 @@
 import handle from "./aero/handle.js";
-import dynamicUpdates from "./aero/updates.js";
+import "./aero/init.js";
 
-self.addEventListener("install", event => self.skipWaiting());
+self.addEventListener("install", () => self.skipWaiting());
 
 self.addEventListener("fetch", async event =>
 	event.respondWith(
 		handle(event).catch(err => new Response(err.stack, { status: 500 }))
 	)
 );
-
-dynamicUpdates();

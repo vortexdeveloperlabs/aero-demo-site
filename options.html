@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Haven</title>
+		<title>aero</title>
 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,14 +11,15 @@
 	</head>
 
 	<body>
-		<script type="module" src="/script/options.js"></script>
+		<h3>Title</h3>
+		<input type="textbox" id="title" placeholder="Write a title" />
 
-		<h3>Stealth</h3>
-		<p>
-			Stealth hides sites from your browsing history and your screen from
-			spyware
-		</p>
-		<input type="checkbox" id="stealth" onclick="toggleStealth()" />
+		<h3>Colorway</h3>
+		<label for="bg">Primary</label>
+		<input type="color" id="bg" />
+		<label for="fg">Secondary</label>
+		<input type="color" id="fg" />
+		<button id="clear" name="reset">Revert</button>
 
 		<h3>Search Engine</h3>
 		<select id="dropdown" onchange="changeSearch()">
@@ -28,10 +29,8 @@
 			<option value="qwant">Qwant</option>
 		</select>
 
-		<h3>Title</h3>
-		<input type="textbox" id="title" placeholder="Write a title" />
-
+		<script type="module" src="/script/options.js"></script>
+		<script type="module" src="/script/init.js"></script>
 		<script type="module" src="/script/sdk/proxyHref.js"></script>
-		<script type="module" src="/script/setOptions.js"></script>
 	</body>
 </html>

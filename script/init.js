@@ -1,9 +1,9 @@
+// Set options
 const title = localStorage.getItem("title");
 const favicon = localStorage.getItem("favicon");
-const stealth = localStorage.getItem("stealth");
 
 function changeFavicon(url) {
-	var link =
+	const link =
 		document.querySelector("link[rel*='icon']") ||
 		document.createElement("link");
 
@@ -16,3 +16,10 @@ function changeFavicon(url) {
 
 if (favicon) changeFavicon(favicon);
 if (title) document.title = title;
+
+// Colorway
+const root = document.querySelector(":root");
+const bg = localStorage.getItem("bg");
+if (bg) root.style.setProperty("--bg", bg);
+const fg = localStorage.getItem("fg");
+if (fg) root.style.setProperty("--fg", fg);
