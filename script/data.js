@@ -1,4 +1,4 @@
-const org = "https://github.com/ProxyHaven/";
+const org = "https://github.com/NebulaServices/";
 
 export default {
 	// Github repo
