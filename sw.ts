@@ -1,15 +1,13 @@
-import handle from "./aero/handle.js";
-import "./aero/init.js";
+importScripts("./aeroGit/dist/aero.sw.js");
 
 self.addEventListener("install", () => self.skipWaiting());
 
-function wrapLink(link) {
-	console.log(link);
+function wrapLink(link: string) {
 	link = link.replace(/:\d+:\d+$/g, "");
 
 	return `<a href="${link}">${link}</a>`;
 }
-function fmtErr(stack) {
+function fmtErr(stack: string) {
 	return (
 		stack
 			// Put locations on a new line and tab
@@ -23,9 +21,9 @@ function fmtErr(stack) {
 	);
 }
 
-self.addEventListener("fetch", async event =>
-	event.respondWith(
-		handle(event).catch(
+self.addEventListener("fetch", event => {
+	return event.respondWith(
+		self.handle(event).catch(
 			err =>
 				new Response(
 					`
@@ -48,5 +46,5 @@ self.addEventListener("fetch", async event =>
 					{ headers: { "content-type": "text/html" }, status: 500 }
 				)
 		)
-	)
-);
+	);
+});

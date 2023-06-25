@@ -1,0 +1,19 @@
+{
+	"name": "aero-deploy",
+	"version": "1.0.0",
+	"description": "This is the frontend code to aero's demo site. If you want to host aero go [here](https://github.com/ProxyHaven/aero-deploy)",
+	"main": "node.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ProxyHaven/site.git"
+	},
+	"author": "Ryan Wilson",
+	"license": "AGPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/ProxyHaven/site/issues"
+	},
+	"homepage": "https://github.com/ProxyHaven/site#readme"
+}
