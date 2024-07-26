@@ -1,4 +1,4 @@
-org="https://github.com/ProxyHaven/"
+org="https://github.com/VyperGroup/"
 
 if [ ! -d aero ]
 then
@@ -12,7 +12,7 @@ cd ..
 if [ ! -d script/sdk ]
 then
     cd script
-        git clone "${org}/aero-sdk.git" sdk
+        git clone "${org}/sdk.git"
     cd ..
 fi
 

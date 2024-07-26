@@ -6,7 +6,7 @@
 
 			if ("serviceWorker" in navigator)
 				navigator.serviceWorker
-					.register("/sw.js", {
+					.register("/sw.ts", {
 						scope: prefix,
 						// Don't cache http requests
 						updateViaCache: "none",

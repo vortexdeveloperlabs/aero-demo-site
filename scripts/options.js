@@ -1,36 +1,44 @@
-window.toggleStealth = () =>
-	localStorage.setItem("stealth", !localStorage.getItem("stealth"));
+var toggleStealth = () =>
+	localStorage.setItem(
+		"stealth",
+		(!Boolean(localStorage.getItem("stealth"))).toString()
+	);
 
-window.changeSearch = () => {
+var changeSearch = () => {
 	const dropdown = document.getElementById("dropdown");
-
-	setCookie("search", dropdown.value);
+	if (dropdown instanceof HTMLSelectElement)
+		setCookie("search", dropdown.value);
 };
 
 const title = document.getElementById("title");
-title.value = localStorage.getItem("title");
-title.addEventListener("keyup", event => {
-	if (event.key === "Enter") {
-		const value = event.target.value;
+if (title instanceof HTMLInputElement) {
+	const titleItem = localStorage.getItem("title");
+	if (titleItem) {
+		title.value = titleItem;
+		title.addEventListener("keyup", event => {
+			if (event.key === "Enter") {
+				const value = title.value;
 
-		localStorage.setItem("title", value);
+				localStorage.setItem("title", value);
+			}
+		});
 	}
-});
+}
 
-window.bg = document.getElementById("bg");
-window.fg = document.getElementById("fg");
+var bg = document.getElementById("bg");
+var fg = document.getElementById("fg");
+
 const clear = document.getElementById("clear");
-
 const root = document.querySelector(":root");
 
 function setColor(way, color) {
 	localStorage.setItem(way, color);
-	root.style.setProperty(`--${way}`, color);
+	if (root instanceof HTMLElement) root.style.setProperty(`--${way}`, color);
 	window[way].value = color;
 }
-function getColor(v) {
+function getColor(color) {
 	return getComputedStyle(document.documentElement)
-		.getPropertyValue(`--${v}`)
+		.getPropertyValue(`--${color}`)
 		.slice(1);
 }
 
@@ -38,12 +46,18 @@ const origBg = getColor("bg");
 const origFg = getColor("fg");
 
 // Reflect the current value
-if (bg) bg.value = localStorage.getItem("bg") ?? getColor("bg");
-if (fg) fg.value = localStorage.getItem("fg") ?? getColor("fg");
+if (bg instanceof HTMLLabelElement) {
+	const input = document.getElementById(bg.htmlFor);
+	if (input instanceof HTMLInputElement && input.type === "color")
+		input.value = localStorage.getItem("bg") ?? getColor("bg");
+}
+if (fg) {
+	fg.value = localStorage.getItem("fg") ?? getColor("fg");
+}
 
 // Update to the new value
-bg.addEventListener("change", event => setColor("bg", event.target.value));
-fg.addEventListener("change", event => setColor("fg", event.target.value));
+bg.addEventListener("change", event => setColor("bg", bg.value));
+fg.addEventListener("change", event => setColor("fg", bg.value));
 // Revert colors to default
 clear.addEventListener("click", () => {
 	setColor("bg", origBg);

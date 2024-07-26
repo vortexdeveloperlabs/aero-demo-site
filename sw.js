@@ -1,11 +1,10 @@
-import handle from "./aero/handle.js";
-import "./aero/init.js";
+importScripts("aero/config.aero.js");
+importScripts("aero/sw.aero.js");
 
 self.addEventListener("install", () => self.skipWaiting());
 
 function wrapLink(link) {
-	console.log(link);
-	link = link.replace(/:\d+:\d+$/g, "");
+	const link = link.replace(/:\d+:\d+$/g, "");
 
 	return `<a href="${link}">${link}</a>`;
 }

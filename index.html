@@ -20,17 +20,20 @@
 	</head>
 
 	<body>
-		<script type="module" src="/scripts/sdk/proxyHref.js"></script>
+		<script type="module" src="/scripts/sdk/proxyHref.ts"></script>
 
 		<section>
-			<input
+      <img id="logo" src="./images/aero.webp" alt="aero logo"/>
+      <div id="box-up">
+        <input
 				id="omnibox"
 				type="text"
 				placeholder="Type a search query or url here"
 				autocomplete="off"
 				autofocus
-			/>
+			  />
 			<div id="box" hidden></div>
+      </div>
 		</section>
 		<navbar>
 			<a href="options.html"><ion-icon name="cog-outline"></ion-icon></a>

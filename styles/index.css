@@ -2,10 +2,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
 
 section {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  margin: 0;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 25%;
+  height: auto;
+}
+
+#box-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
@@ -16,7 +32,7 @@ section {
 
 	border-color: var(--fg);
 	border-style: solid;
-	border-width: 0.1em;
+	border-width: 0.12em;
 	border-radius: 3px;
 }
 
