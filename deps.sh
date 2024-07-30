@@ -1,22 +1,13 @@
 org="https://github.com/VyperGroup/"
 
-if [ ! -d aero ]
+if [ ! -d scripts/sdk ]
 then
-    git clone "${org}/aero.git"
-fi
-
-cd aero
-    git pull > /dev/null
-cd ..
-
-if [ ! -d script/sdk ]
-then
-    cd script
-        git clone "${org}/sdk.git"
+    cd scripts
+        git clone "${org}sdk.git"
     cd ..
 fi
 
-cd script
+cd scripts
     cd sdk
         git pull > /dev/null
     cd ..
