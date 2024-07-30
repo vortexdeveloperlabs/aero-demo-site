@@ -1,17 +1,15 @@
-//import { prefix, backends } from "../aero/config.bundle.js";
-const prefix = "/go/";
-const backends = ["/bare/"];
-
 import ProxyManager from "./sdk/ProxyManager.js";
 //import stealth from "./sdk/stealth.js";
-//import Search from "./sdk/Search.js";
+import Search from "./sdk/Search.js";
+
+import initBareMux from "./initBareMux.js";
 
 {
 	const proxyManager = new ProxyManager();
 
-	proxyManager.add("/sw.ts", prefix);
+	proxyManager.add("/sw.js", self.config.prefix);
 
-	//const search = new Search(backends);
+	const search = new Search();
 
 	function getSearchEngine() {
 		const defaultSearch = "google";
@@ -19,15 +17,9 @@ import ProxyManager from "./sdk/ProxyManager.js";
 		return localStorage.getItem("search") || defaultSearch;
 	}
 
-	function redirectTo(url) {
-		const goto = location.origin + prefix + url;
-
-		/*
-		localStorage.getItem("stealth") === "true"
-			? stealth(goto)
-			: (location.href = goto);
-    */
-		location.href = goto;
+	async function redirectTo(url) {
+    await initBareMux();
+		location.pathname = self.config.prefix + url;
 	}
 
 	function go(url) {
@@ -41,7 +33,7 @@ import ProxyManager from "./sdk/ProxyManager.js";
 	}
 
 	function formatQuery(query) {
-		return query; //search[getSearchEngine()].url() + query.replace(/ /g, "+");
+		return query;
 	}
 
 	addEventListener("load", () => {
@@ -54,9 +46,10 @@ import ProxyManager from "./sdk/ProxyManager.js";
 			box instanceof HTMLDivElement
 		)
 			omnibox.addEventListener("keyup", async event => {
+        await initBareMux();
+
 				if (event.key === "Enter") go(omnibox.value || "");
 				else {
-					/*
 					// Search suggestions
 					const query = omnibox.value;
 
@@ -76,7 +69,7 @@ import ProxyManager from "./sdk/ProxyManager.js";
 							const link = document.createElement("a");
 
 							link.href =
-								location.origin + prefix + formatQuery(entry);
+								location.origin + self.config.prefix + formatQuery(entry);
 							link.text = entry;
 
 							const line = document.createElement("br");
@@ -84,7 +77,6 @@ import ProxyManager from "./sdk/ProxyManager.js";
 							box.appendChild(link);
 							box.appendChild(line);
 						}
-										*/
 				}
 			});
 	});

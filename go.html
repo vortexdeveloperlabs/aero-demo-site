@@ -2,15 +2,14 @@
 <html>
 	<body>
 		<script type="module">
-			import { prefix } from "/aero/config.js";
+			import "/aero/config.aero.js";
 
 			if ("serviceWorker" in navigator)
 				navigator.serviceWorker
 					.register("/sw.ts", {
-						scope: prefix,
+						scope: config.prefix,
 						// Don't cache http requests
 						updateViaCache: "none",
-						type: "module",
 					})
 					// Update service worker
 					.then(reg => {

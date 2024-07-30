@@ -4,9 +4,9 @@ importScripts("aero/sw.aero.js");
 self.addEventListener("install", () => self.skipWaiting());
 
 function wrapLink(link) {
-	const link = link.replace(/:\d+:\d+$/g, "");
+	const wrappedLink = link.replace(/:\d+:\d+$/g, "");
 
-	return `<a href="${link}">${link}</a>`;
+	return `<a href="${wrappedLink}">${wrappedLink}</a>`;
 }
 function fmtErr(stack) {
 	return (
@@ -24,10 +24,12 @@ function fmtErr(stack) {
 
 self.addEventListener("fetch", async event =>
 	event.respondWith(
-		handle(event).catch(
-			err =>
-				new Response(
-					`
+		handle(event).catch(err => {
+			setTimeout(() => {
+				throw err;
+			}, 500);
+			return new Response(
+				/* html */ `
 <!DOCTYPE html>
 <html>
 	<body>
@@ -40,12 +42,16 @@ self.addEventListener("fetch", async event =>
 			}
 		</style>
 		<h1 id="title" style="color: red">Aero Bug</h1>
-		<p id="err">${fmtErr(err.stack)}<p>
+		<p id="err">${fmtErr(err.stack)}<br>${err.cause}<p>
+    <script src="/scripts/sdk/ProxyManager.js">
+      const proxyManager = new ProxyManager();
+      proxyManager.add("/sw.js", prefix);
+    </script>
 	</body>
 </html>
 			`,
-					{ headers: { "content-type": "text/html" }, status: 500 }
-				)
-		)
+				{ headers: { "content-type": "text/html" }, status: 500 }
+			);
+		})
 	)
 );

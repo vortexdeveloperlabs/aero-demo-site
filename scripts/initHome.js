@@ -1,5 +1,5 @@
 // Init data
-import data from "./data.ts";
+import data from "./data.js";
 
 const repo = document.getElementById("repo");
 if (repo instanceof HTMLAnchorElement) repo.href = data.repo;
