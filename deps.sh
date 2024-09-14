@@ -1,5 +1,7 @@
 org="https://github.com/VyperGroup/"
 
+npm install > /dev/null
+
 if [ ! -d scripts/sdk ]
 then
     cd scripts
