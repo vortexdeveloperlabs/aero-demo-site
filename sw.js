@@ -3,8 +3,10 @@ importScripts("aero/sw.aero.js");
 
 importScripts("./scripts/sdk/aeroHandleSimple.js");
 
+const aeroHandler = patchAeroHandler(handle);
+
 self.addEventListener("install", () => skipWaiting());
 
 self.addEventListener("fetch", async event =>
-	event.respondWith(patchAeroHandler(handle)(event))
+	event.respondWith(aeroHandler(event))
 );
