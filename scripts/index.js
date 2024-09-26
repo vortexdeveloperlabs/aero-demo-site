@@ -7,7 +7,7 @@ import initBareMux from "./initBareMux.js";
 {
 	const proxyManager = new ProxyManager();
 
-	proxyManager.add("/sw.js", self.config.prefix);
+	proxyManager.add("/sw.js", aeroConfig.prefix);
 
 	const search = new Search();
 
@@ -18,8 +18,8 @@ import initBareMux from "./initBareMux.js";
 	}
 
 	async function redirectTo(url) {
-    await initBareMux();
-		location.pathname = self.config.prefix + url;
+		await initBareMux();
+		location.pathname = aeroConfig.prefix + url;
 	}
 
 	function go(url) {
@@ -46,7 +46,7 @@ import initBareMux from "./initBareMux.js";
 			box instanceof HTMLDivElement
 		)
 			omnibox.addEventListener("keyup", async event => {
-        await initBareMux();
+				await initBareMux();
 
 				if (event.key === "Enter") go(omnibox.value || "");
 				else {
@@ -69,7 +69,9 @@ import initBareMux from "./initBareMux.js";
 							const link = document.createElement("a");
 
 							link.href =
-								location.origin + self.config.prefix + formatQuery(entry);
+								location.origin +
+								aeroConfig.prefix +
+								formatQuery(entry);
 							link.text = entry;
 
 							const line = document.createElement("br");

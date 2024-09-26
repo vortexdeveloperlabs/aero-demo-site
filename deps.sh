@@ -1,6 +1,6 @@
-org="https://github.com/VyperGroup/"
+org="https://github.com/vortexdeveloperlabs/"
 
-npm install > /dev/null
+npm install
 
 if [ ! -d scripts/sdk ]
 then

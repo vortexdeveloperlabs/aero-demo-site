@@ -2,20 +2,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
 
 section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 80vh;
-  margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 80vh;
+	margin: 0;
 }
 
 #logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 25%;
-  height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 25%;
+	height: auto;
 }
 
 #box-up {
@@ -33,22 +33,22 @@ section {
 }
 
 #box {
-  display: flex;
-  justify-content: normal;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	justify-content: normal;
+	flex-direction: column;
+	align-items: center;
 }
 
 #box br {
-  display: none;
+	display: none;
 }
 
 #box a {
 	color: rgb(125, 187, 247);
 
 	font-size: 1.2em;
-  margin:0;
-  padding:0;
+	margin: 0;
+	padding: 0;
 	font-family: "Ubuntu Mono", monospace;
 }
 
