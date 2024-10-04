@@ -7,5 +7,6 @@ const wispUrl = `${location.protocol === "https:" ? "wss" : "ws"}://${
 export default async () => {
 	if ((await connection.getTransport()) !== "/epoxy/index.mjs") {
 		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
+		console.log("set");
 	}
 };

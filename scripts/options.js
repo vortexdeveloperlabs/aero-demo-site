@@ -1,10 +1,10 @@
-var toggleStealth = () =>
+const toggleStealth = () =>
 	localStorage.setItem(
 		"stealth",
-		(!Boolean(localStorage.getItem("stealth"))).toString()
+		(!localStorage.getItem("stealth")).toString()
 	);
 
-var changeSearch = () => {
+const changeSearch = () => {
 	const dropdown = document.getElementById("dropdown");
 	if (dropdown instanceof HTMLSelectElement)
 		setCookie("search", dropdown.value);
@@ -25,8 +25,8 @@ if (title instanceof HTMLInputElement) {
 	}
 }
 
-var bg = document.getElementById("bg");
-var fg = document.getElementById("fg");
+const bg = document.getElementById("bg");
+const fg = document.getElementById("fg");
 
 const clear = document.getElementById("clear");
 const root = document.querySelector(":root");
@@ -56,8 +56,8 @@ if (fg) {
 }
 
 // Update to the new value
-bg.addEventListener("change", event => setColor("bg", bg.value));
-fg.addEventListener("change", event => setColor("fg", bg.value));
+bg.addEventListener("change", () => setColor("bg", bg.value));
+fg.addEventListener("change", () => setColor("fg", bg.value));
 // Revert colors to default
 clear.addEventListener("click", () => {
 	setColor("bg", origBg);
