@@ -19,7 +19,9 @@ import initBareMux from "./initBareMux.js";
 
 	async function redirectTo(url) {
 		await initBareMux();
-		location.pathname = aeroConfig.prefix + url;
+		const frame = document.getElementById("frame");
+		frame.style.display = "block";
+		frame.src = aeroConfig.prefix + url;
 	}
 
 	function go(url) {
@@ -33,7 +35,7 @@ import initBareMux from "./initBareMux.js";
 	}
 
 	function formatQuery(query) {
-		return query;
+		return `${search[getSearchEngine()].url() + query}`;
 	}
 
 	addEventListener("load", () => {
@@ -55,8 +57,6 @@ import initBareMux from "./initBareMux.js";
 
 					const entries = await search[getSearchEngine()].ac(query);
 
-					await search[getSearchEngine()].ac(query);
-
 					const hasEntries = entries.length !== 0;
 
 					// Reset the previous suggestions
@@ -68,10 +68,10 @@ import initBareMux from "./initBareMux.js";
 							// Create the link
 							const link = document.createElement("a");
 
-							link.href =
-								location.origin +
-								aeroConfig.prefix +
-								formatQuery(entry);
+							link.onclick = () => {
+								event.preventDefault();
+								go(location.origin + aeroConfig.prefix + formatQuery(entry))
+							}
 							link.text = entry;
 
 							const line = document.createElement("br");

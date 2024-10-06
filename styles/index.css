@@ -49,6 +49,7 @@ section {
 	font-size: 1.2em;
 	margin: 0;
 	padding: 0;
+	cursor: pointer;
 	font-family: "Ubuntu Mono", monospace;
 }
 
@@ -98,4 +99,13 @@ navbar i:hover .hidden {
 
 #sponsor a {
 	color: lightblue;
+}
+#frame {
+	border: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--bg);
 }

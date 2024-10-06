@@ -6,13 +6,13 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<link rel="stylesheet" href="/style/master.css" />
-		<link rel="stylesheet" href="/style/options.css" />
+		<link rel="stylesheet" href="/styles/master.css" />
+		<link rel="stylesheet" href="/styles/options.css" />
 	</head>
 
 	<body>
 		<h3>Title</h3>
-		<input type="textbox" id="title" placeholder="Write a title" />
+		<input type="textbox" id="title" />
 
 		<h3>Colorway</h3>
 		<label for="bg">Primary</label>
@@ -22,15 +22,30 @@
 		<button id="clear" name="reset">Revert</button>
 
 		<h3>Search Engine</h3>
-		<select id="dropdown" onchange="changeSearch()">
+		<select id="search-dropdown">
 			<option disabled selected value>Choose a search engine</option>
 			<option value="google">Google</option>
+			<option value="ddg">DuckDuckGo</option>
 			<option value="brave">Brave</option>
 			<option value="qwant">Qwant</option>
 		</select>
+		
+		<h3>Transport</h3>
+		<select id="transport-dropdown">
+			<option disabled selected value>Choose a Transport</option>
+			<option value="/libcurl/index.mjs">Libcurl</option>
+			<option value="/epoxy/index.mjs">Epoxy</option>
+			<option value="/baremod/index.mjs">Bare Client</option>
+		</select>
 
-		<script type="module" src="/script/options.ts"></script>
-		<script type="module" src="/script/init.ts"></script>
-		<script type="module" src="/script/sdk/proxyHref.ts"></script>
+		<h3>Wisp URL</h3>
+		<input type="textbox" id="wisp-url" />
+
+		<h3>Bare URL</h3>
+		<input type="textbox" id="bare-url" />
+
+		<script src="/scripts/options.js"></script>
+		<script type="module" src="/scripts/init.js"></script>
+		<script type="module" src="/scripts/sdk/proxyHref.js"></script>
 	</body>
 </html>
