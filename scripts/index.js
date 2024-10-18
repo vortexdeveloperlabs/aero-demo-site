@@ -43,7 +43,10 @@ import initBareMux from "./initBareMux.js";
 
 		const box = document.getElementById("box");
 
-		if (omnibox instanceof HTMLInputElement && box instanceof HTMLDivElement)
+		if (
+			omnibox instanceof HTMLInputElement &&
+			box instanceof HTMLDivElement
+		)
 			omnibox.addEventListener("keyup", async event => {
 				await initBareMux();
 
@@ -67,7 +70,11 @@ import initBareMux from "./initBareMux.js";
 
 							link.onclick = () => {
 								event.preventDefault();
-								go(location.origin + aeroConfig.prefix + formatQuery(entry));
+								go(
+									location.origin +
+										aeroConfig.prefix +
+										formatQuery(entry)
+								);
 							};
 							link.text = entry;
 
